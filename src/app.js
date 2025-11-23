@@ -6,7 +6,13 @@ const authRouter = require('./routes/auth');
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+    // Reemplaza esto con TU URL REAL de Vercel (sin barra al final)
+    origin: ['https://lab15-frontend-dawa.vercel.app', 'http://localhost:3000'],
+    optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use('/api/products', productsRouter);
